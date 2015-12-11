@@ -1,0 +1,59 @@
+.form, form{
+  label{
+    font-size: 15px;
+    color: $labels-color;
+  }
+  .form-control{
+    outline: none !important;
+    border: 2px solid #C6C6C6;
+    font-size: 15px !important;
+    box-shadow: none !important;
+    height: 40px;
+
+    &:focus{
+      border-color: $labels-color;
+    }
+  }
+
+  textarea.form-control{
+    height: 80px;
+    max-height: 200px;
+    max-width: 100%;
+  }
+
+  p:last-child{
+    margin-bottom: 0;
+  }
+}
+
+.ajax-loader{
+  position: absolute;
+}
+
+.tp-datepicker-trigger{
+  background-color: white !important;
+}
+
+
+// Panels*
+
+.panel.panel-default{
+  border: 2px solid #C6C6C6;
+  box-shadow: none;
+
+  .panel-body{
+    padding: 30px;
+  }
+}
+
+div.wpcf7-response-output{
+  border-radius: 3px;
+  margin: 0px;
+  padding: 10px 15px;
+
+  &.wpcf7-mail-sent-ok{
+    border-color: #9bae9e;
+    background-color: #b5d8cd;
+    color: #425560;
+  }
+}

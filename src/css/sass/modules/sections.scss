@@ -1,0 +1,146 @@
+.section{
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 0px;
+  margin-bottom: 0px;
+
+  .section-title{
+    font-size: 30px;
+  }
+
+  .section-paragraph{
+    font-size: 21px;
+
+    margin-bottom: 50px;
+
+    font-weight: 300;
+  }
+
+  .btn.btn-autostyle{
+    @extend .btn-primary;
+    &:hover, &.hover{ @extend .btn-primary:hover; }
+    &:active, &.active{ @extend .btn-primary:active; }
+  }
+
+  .section-background{
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+
+    background-size: cover;
+    background-position: center center;
+
+    z-index: 0;
+
+    img{
+      width: auto;
+      height: 100%;
+      max-width: 999%;
+
+      @media (min-width: $mobile_breakpoint){
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .on-top-relative{
+    position: relative;
+    z-index: 1;
+  }
+
+  &.section-primary{
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    text-align: left;
+
+    @media (min-width: $mobile_breakpoint){
+      min-height: 600px;
+      padding-top: 250px;
+      padding-bottom: 250px;
+      text-align: center;
+    }
+
+    .section-title, .section-paragraph{
+      color: white;
+
+      max-width: 660px;
+      margin: auto;
+    }
+
+    .section-title{
+      font-size: 36px;
+      margin-bottom: 40px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+
+      @media(min-width: $mobile_breakpoint){
+        font-size: 60px;
+      }
+
+    }
+    .section-paragraph{
+      font-size: 21px;
+      // line-height: 30px;
+
+      margin-bottom: 50px;
+    }
+
+  }
+
+  &.section-inverted{
+    background-color: $inverted-color;
+
+    @media (min-width: $mobile_breakpoint){
+      // min-height: 600px;
+      padding-top: 150px;
+      padding-bottom: 150px;
+    }
+
+    .section-title, .section-paragraph{
+      max-width: 500px;
+    }
+
+    .section-paragraph{
+      color: white;
+
+      line-height: 1.6em;
+    }
+
+    .section-title{
+      font-size: 38px;
+      color: $strong-color;
+    }
+
+    .btn.btn-autostyle{
+      @extend .btn-outlined;
+      &:hover, &.hover{ @extend .btn-primary:hover; }
+      &:active, &.active{ @extend .btn-primary:active; }
+    }
+  }
+
+  &.section-asy-padding{
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
+
+  &.section-small-padding{
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  &.section-medium-padding{
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  &.section-large-padding{
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}

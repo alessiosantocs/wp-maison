@@ -1,0 +1,282 @@
+.bnb_apartment-container{
+  .bnb_apartment-item{
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    height: 400px;
+
+    @media (min-width: $mobile_breakpoint){
+      // height: 400px;
+    }
+
+    .bnb_apartment-background-image{
+      position: relative;
+      -webkit-transition: -webkit-transform 1s ease, opacity .5s ease, filter .5s ease;
+      -moz-transition: -moz-transform 1s ease, opacity .5s ease, filter .5s ease;
+      -ms-transition: -ms-transform 1s ease, opacity .5s ease, filter .5s ease;
+      -o-transition: -o-transform 1s ease, opacity .5s ease, filter .5s ease;
+      transition: transform 1s ease, opacity .5s ease, filter .5s ease;
+
+      opacity: 0.8;
+      filter: contrast(1.2) brightness(0.6) saturate(1.3);
+
+      height: 105%;
+      width: auto;
+      max-width: 999%;
+
+      @media (min-width: $mobile_breakpoint){
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+      }
+
+      // &:after{
+      //   content: "";
+      //   background: rgba(0, 0, 0, 0.2);
+      //   opacity: 1;
+      //
+      //   position: absolute;
+      //   top: 0; bottom: 0;
+      //   left: 0; right: 0;
+      //
+      // }
+    }
+
+    .bnb_apartment-content{
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+
+      h3, p, h3>a{
+        color: white;
+        text-decoration: none;
+      }
+
+      h3.bnb_apartment-item-name{
+        font-size: 36px;
+        line-height: 50px;
+
+        margin-top: 130px;
+      }
+
+      p{
+        font-size: 21px;
+        font-weight: 200;
+        line-height: 40px;
+
+        margin-bottom: 30px;
+      }
+
+      .bnb_apartment-button-container{
+
+      }
+    }
+
+    &:hover{
+      .bnb_apartment-background-image{
+        @include crossBrowser(transform, translateY(-10px));
+      }
+    }
+
+    &:first-child .bnb_apartment-content{
+      .bnb_apartment-item-name, .bnb_apartment-excerpt, .bnb_apartment-button-container{
+        @media (min-width: $mobile_breakpoint){
+          max-width: 50%;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// Amenities
+
+.bnb_apartment-amenities{
+  @extend .row;
+  margin-left: 0;
+  margin-right: 0;
+
+  color: #ccc;
+
+  .bnb_apartment-amenities-item{
+    @extend .col-sm-4;
+    @extend .col-xs-6;
+
+    padding: 5px 0px;
+
+    // text-decoration: line-through;
+
+    &.present{
+      color: $text-color;
+      text-decoration: none;
+    }
+  }
+
+  &.inverted-color{
+    color: darken($inverted-color, 10%);
+
+    .bnb_apartment-amenities-item{
+      &.present{
+        color: white;
+      }
+    }
+  }
+}
+
+
+// Slider
+
+.slick-slider{
+  &.bnb_apartment-slider{
+
+    background-color: white;
+
+    // @media (min-width: $mobile_breakpoint){
+    //   background-color: white;
+    // }
+
+    .navbar, .navbar .navbar-toggle, &.fullscreen{
+      position: absolute;
+
+      @media (min-width: $mobile_breakpoint){
+        position: fixed;
+      }
+    }
+
+    .navbar{
+      display: none;
+      z-index: 21;
+    }
+
+    &.fullscreen{
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: black;
+      z-index: 20;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      max-width: 100%;
+      max-height: 100%;
+
+      .navbar{
+        display: block;
+      }
+
+      .slick-list .slick-slide img{
+        max-height: 600px;
+      }
+
+      .navbar .navbar-toggle{
+        display: inline-block;
+        visibility: visible;
+      }
+    }
+
+    .slick-prev, .slick-next{
+      top: 10px;
+      bottom: 0;
+      height: auto;
+      width: 250px;
+
+      display: none !important;
+      z-index: 1;
+
+      @media (min-width: $mobile_breakpoint){
+        display: block !important;
+      }
+
+      &:before{
+        font-weight: bold;
+        background: rgba(0,0,0,0.5);
+        padding: 10px;
+        border-radius: 50%;
+      }
+    }
+    .slick-prev{
+      left: 0;
+    }
+    .slick-next{
+      right: 0;
+    }
+
+    .slick-list{
+
+      .slick-track{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slick-slide{
+        position: relative;
+        margin: 0px;
+
+        @media (min-width: $mobile_breakpoint){
+          margin: 0px 2px;
+        }
+
+        img{
+          max-height: 450px;
+        }
+
+        .bnb_apartment-slider-description{
+          position: absolute;
+          bottom: 0;
+          left: 0; right: 0;
+
+          opacity: 0;
+          @include crossBrowser(transition, opacity .4s ease);
+
+          padding: 5px 15px;
+
+          color: white;
+          background: rgba(0,0,0,0.5);
+
+        }
+
+        &:hover{
+          .bnb_apartment-slider-description{
+            opacity: 1;
+            @include crossBrowser(transition, opacity .4s .5s ease);
+          }
+        }
+      }
+    }
+
+    &:hover{
+      .slick-prev{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.6+0,0+60,0+60 */
+        background: -moz-linear-gradient(left,  rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0.6)), color-stop(60%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(left,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 60%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 60%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(left,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 60%,rgba(0,0,0,0) 100%); /* IE10+ */
+        background: linear-gradient(to right,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 60%,rgba(0,0,0,0) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#99000000', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+
+
+      }
+      .slick-next{
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0+40,0+40,0.6+100 */
+        background: -moz-linear-gradient(left,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.6) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,0)), color-stop(40%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.6))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0.6) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0.6) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(left,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0.6) 100%); /* IE10+ */
+        background: linear-gradient(to right,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,0.6) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#99000000',GradientType=1 ); /* IE6-9 */
+
+
+      }
+
+    }
+  }
+}

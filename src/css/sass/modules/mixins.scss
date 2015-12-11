@@ -8,3 +8,25 @@
   padding: 0;
   margin: 0;
 }
+
+@mixin crossBrowser($property, $value){
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+  #{$property}: $value;
+}
+@mixin crossBrowserAdv($property, $value){
+  -webkit-#{$property}: -webkit-#{$value};
+  -moz-#{$property}: -moz-#{$value};
+  -ms-#{$property}: -ms-#{$value};
+  -o-#{$property}: -o-#{$value};
+  #{$property}: #{$value};
+}
+@mixin crossBrowserAdv2($property, $value, $value2){
+  -webkit-#{$property}: -webkit-#{$value}, $value2;
+  -moz-#{$property}: -moz-#{$value}, $value2;
+  -ms-#{$property}: -ms-#{$value}, $value2;
+  -o-#{$property}: -o-#{$value}, $value2;
+  #{$property}: #{$value}, $value2;
+}

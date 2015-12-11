@@ -4,10 +4,19 @@
  * Main `sass` file. Import here `sass` files
  */
 
+// Libs
+@import "lib/bootstrap/bootstrap";
+@import "lib/slick";
+@import "lib/slick-theme";
+
 // Modules
 @import "modules/variables";
 @import "modules/mixins";
 @import "modules/fonts";
+@import "modules/buttons";
+@import "modules/animations";
+@import "modules/sections";
+@import "modules/forms";
 
 // Partials
 @import "partials/reset";
@@ -19,3 +28,8 @@
 @import "partials/sidebar";
 @import "partials/footer";
 @import "partials/print";
+@import "partials/bnb_apartment";
+
+body{
+  overflow-x: hidden;
+}

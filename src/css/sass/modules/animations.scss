@@ -1,0 +1,41 @@
+.css-animate{
+  &.on-hover{
+    .animatable{
+      &.move-up{@include crossBrowserAdv(transition, transform .5s ease);}
+      &.fade-in-up{@include crossBrowserAdv2(transition, transform .5s ease, opacity .5s ease); opacity: 0;}
+    }
+    &:hover,.hover{
+      $css-a-moveup-px: -30px;
+      .move-up{
+        transform: translateY($css-a-moveup-px);
+      }
+      .fade-in-up{
+        opacity: 1;
+        transform: translateY($css-a-moveup-px);
+      }
+    }
+
+    @media (max-width: $mobile_breakpoint){
+
+      $css-a-moveup-px: -30px;
+
+      .animatable{
+        &.move-up{
+          transform: translateY($css-a-moveup-px);
+        }
+        &.fade-in-up{
+          opacity: 1;
+          transform: translateY($css-a-moveup-px);
+        }
+      }
+
+    }
+  }
+}
+
+
+
+.enhance-img{
+  @include crossBrowser(filter, contrast(1.5) brightness(1.5) saturate(2));
+  opacity: 0.3;
+}

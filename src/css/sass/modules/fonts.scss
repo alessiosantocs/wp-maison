@@ -17,3 +17,38 @@
   font-style: normal;
 }
 */
+
+@font-face {
+  font-family: 'Bauer Bodoni';
+  font-weight: normal;
+  src: url("fonts/BauerBodoni-Roman.otf") format("opentype");
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Bauer Bodoni';
+  font-weight: normal;
+  line-height: 1.3em;
+  color: $heading-color;
+
+  &.normal-font{
+    font-family: $font-family-base;
+    font-weight: 200;
+  }
+}
+
+h1{
+  @media (min-width: 768px){
+    font-size: 48px;
+  }
+}
+
+p{
+  color: $text-color;
+  font-size: 16px;
+  line-height: 1.6em;
+
+  margin-bottom: 30px;
+  &.lead{
+    line-height: 2em;
+  }
+}

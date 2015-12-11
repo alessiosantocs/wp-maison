@@ -13,6 +13,12 @@ var gulp = require( "gulp" ),
 		"src/js/lib/conditionizr-4.3.0.min.js",
 		/** jQuery */
 		"src/bower_components/jquery/dist/jquery.js",
+		/** Bootstrap */
+		"src/js/lib/bootstrap.min.js",
+		/** Slick slides */
+		"src/js/lib/slick.min.js",
+		/** Daterange picker */
+		"src/js/lib/tp-daterangepicker.js",
 		/** Page scripts */
 		"src/js/scripts.js"
 	],
@@ -21,12 +27,16 @@ var gulp = require( "gulp" ),
 		development: [
 			/** The banner of `style.css` */
 			"src/css/banner.css",
+			/** tp-datepicker */
+			"src/css/tp-datepicker.css",
 			/** Theme style */
 			"src/css/style.css"
 		],
 		production: [
 			/** The banner of `style.css` */
 			"src/css/banner.css",
+			/** tp-datepicker */
+			"src/css/tp-datepicker.css",
 			/** Normalize */
 			"src/bower_components/normalize.css/normalize.css",
 			/** Theme style */
@@ -63,7 +73,8 @@ gulp.task( "copy", function() {
 			"src/modules/*.php",
 			"src/img/**/*.{jpg,png,svg,gif,webp,ico}",
 			"src/fonts/*.{woff,woff2,ttf,otf,eot,svg}",
-			"src/languages/*.{po,mo,pot}"
+			"src/languages/*.{po,mo,pot}",
+			"src/acf-json/*.{php,json}"
 		], {
 			base: "src"
 		})
@@ -150,7 +161,7 @@ gulp.task( "watch", [ "template", "styles", "jshint" ], function() {
 
 	/** Watch for autoprefix */
 	gulp.watch( [
-		"src/css/*.css",
+		// "src/css/*.css",
 		"src/css/sass/**/*.scss"
 	], [ "styles" ] );
 

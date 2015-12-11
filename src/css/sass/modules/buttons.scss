@@ -1,0 +1,58 @@
+.btn{
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+
+  padding: 8px 20px;
+
+  border: 2px solid transparent;
+
+  @include crossBrowser(transition, background-color .3s ease);
+
+  &.btn-primary{
+    background-color: $strong-color;
+    border-color: $strong-color;
+
+    &:hover,&.hover,&:active:hover,&.active.hover,&:focus{
+      background-color: lighten($strong-color, 5%);
+      border-color: $strong-color;
+    }
+    &:active,&.active{
+      background-color: $strong-color;
+      border-color: $strong-color;
+    }
+  }
+
+  &.btn-transparent-white{
+    color: white;
+
+    background-color: $transparent-white;
+    border-color: transparent;
+
+    &:hover{
+      background-color: rgba(255,255,255,0.6);
+    }
+    &:active{
+      background-color: $transparent-white;
+      border-color: transparent;
+    }
+  }
+
+  &:hover{
+    @include crossBrowser(transition, background-color .1s ease);
+  }
+
+  &:active{
+    border-color: transparent;
+  }
+
+  &.btn-outlined{
+    background-color: transparent;
+    color: white;
+  }
+
+  &.btn-full-width{
+    width: 100%;
+  }
+}
