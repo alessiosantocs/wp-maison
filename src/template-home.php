@@ -19,7 +19,7 @@
 				$call_to_action = get_field('call_to_action');
 				if ( !empty($call_to_action) ): ?>
 
-					<a href="<?php echo get_field('call_to_action_url'); ?>" class="btn btn-transparent-white">
+					<a href="<?php echo get_field('call_to_action_url'); ?>" class="btn btn-primary">
 						<?php echo $call_to_action; ?>
 					</a>
 
@@ -29,6 +29,24 @@
 		</section>
 		<!-- /section -->
 
+<?php
+$text_section_title = get_field('text_section_title');
+$text_section_description = get_field('text_section_description');
+
+if (!empty($text_section_title) && !empty($text_section_description)):?>
+	<section class="section">
+		<div class="container on-top-relative">
+			<h3 class="section-title">
+				<?php echo $text_section_title; ?>
+			</h3>
+
+			<p class="section-paragraph" style="margin-bottom: 0;">
+				<?php echo $text_section_description; ?>
+			</p>
+
+		</div>
+	</section>
+<?php endif; ?>
 
 		<?php
 
@@ -65,6 +83,45 @@ if( $posts ): ?>
 				</div>
 		</section>
     <?php endforeach; ?>
+    <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+<?php endif; ?>
+
+<?php
+// Featured links
+$posts = get_field('featured_links');
+
+if( $posts ): ?>
+	<section class="section">
+		<div class="container">
+			<div class="row">
+
+			<?php foreach( $posts as $post): // variable must be called $post (IMPORTANT) ?>
+					<?php setup_postdata($post); ?>
+
+					<div class="col-sm-4">
+						<h4 class="">
+							<a href="<?php the_permalink(); ?>">
+								<?php
+								$featured_section_title = get_field('featured_title');
+								if ( !empty($featured_section_title) ): ?>
+
+									<?php echo $featured_section_title; ?>
+
+								<?php else:	 ?>
+
+									<?php the_title(); ?>
+
+								<?php endif; ?>
+							</a>
+						</h4>
+						<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail('large', Array('style' => 'width: 100%; min-height: 200px;')); // Fullsize image for the single post ?>
+						</a>
+					</div>
+			<?php endforeach; ?>
+			</div>
+		</div>
+	</section>
     <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
 <?php endif; ?>
 

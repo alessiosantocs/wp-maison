@@ -87,6 +87,31 @@ function html5blank_nav($menu_class="")
     );
 }
 
+// HTML5 Blank footer navigation
+function html5blank_footer_nav($menu_class="")
+{
+    wp_nav_menu(
+    array(
+        'theme_location'  => 'footer-menu',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => 'menu-{menu slug}-container',
+        'container_id'    => '',
+        'menu_class'      => $menu_class,
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul class="%2$s" id="%1$s">%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => ''
+        )
+    );
+}
+
 // Load HTML5 Blank scripts (header.php)
 function html5blank_header_scripts()
 {
@@ -174,7 +199,7 @@ function register_html5_menu()
     register_nav_menus(array( // Using array to specify more menus if needed
         'header-menu' => __('Header Menu', 'html5blank'), // Main Navigation
         'sidebar-menu' => __('Sidebar Menu', 'html5blank'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'html5blank') // Extra Navigation if needed (duplicate as many as you need!)
+        'footer-menu' => __('Footer Menu', 'html5blank') // Footer Navigation
     ));
 }
 
@@ -414,7 +439,7 @@ add_action('wp_print_scripts', 'html5blank_conditional_scripts'); // Add Conditi
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'html5blank_styles'); // Add Theme Stylesheet
 add_action('init', 'register_html5_menu'); // Add HTML5 Blank Menu
-add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+add_action('init', 'create_post_type_bnb_apartment'); // Add our HTML5 Blank Custom Post Type
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
@@ -462,7 +487,7 @@ add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [htm
 \*------------------------------------*/
 
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
+function create_post_type_bnb_apartment()
 {
     register_taxonomy_for_object_type('category', 'bnb_apartment'); // Register Taxonomies for Category
     register_taxonomy_for_object_type('post_tag', 'bnb_apartment');
@@ -519,14 +544,35 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 }
 
 
+
+
+// Saving
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
 
 function my_acf_json_save_point( $path ) {
 
   // update path
-  $path = get_theme_root('maison2') . '/src/acf-json';
+  $path = get_theme_root() . '/maison2/acf-json';
 
   // return
   return $path;
+
+}
+
+// Loading
+add_filter('acf/settings/load_json', 'my_acf_json_load_point');
+
+function my_acf_json_load_point( $paths ) {
+
+    // remove original path (optional)
+    unset($paths[0]);
+
+
+    // append path
+    $paths[] = get_theme_root() . '/maison2/acf-json';
+
+
+    // return
+    return $paths;
 
 }

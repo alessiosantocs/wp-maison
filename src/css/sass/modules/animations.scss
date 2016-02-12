@@ -4,7 +4,7 @@
       &.move-up{@include crossBrowserAdv(transition, transform .5s ease);}
       &.fade-in-up{@include crossBrowserAdv2(transition, transform .5s ease, opacity .5s ease); opacity: 0;}
     }
-    &:hover,.hover{
+    &:hover,&.hover{
       $css-a-moveup-px: -30px;
       .move-up{
         transform: translateY($css-a-moveup-px);

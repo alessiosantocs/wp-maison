@@ -486,7 +486,8 @@
         return;
       }
       dateArray = string.split('-');
-      return dateArray[2] + " " + (this.t.short_months[parseInt(dateArray[1], 10)].toLowerCase()) + " " + dateArray[0];
+      // Day / Month / Year
+      return dateArray[2] + "/" + dateArray[1] + "/" + dateArray[0];
     };
 
     TpDatepicker.prototype._setScale = function(value, element) {

@@ -5,6 +5,7 @@ $show_page_header = true;
 $show_featured_image = true;
 $show_page_excerpt = true;
 $show_page_content = true;
+$show_sidebar = true;
 
 $hidden_objects = get_field_object('hide_objects');
 
@@ -16,10 +17,11 @@ if(!empty($hidden_objects)){
   }
 
 
-  $show_page_header = array_search('hide_page_header', $hidden_objects_value) === false;
-  $show_featured_image = array_search('hide_featured_image', $hidden_objects_value) === false;
-  $show_page_excerpt = array_search('hide_page_excerpt', $hidden_objects_value) === false;
-  $show_page_content = array_search('hide_content', $hidden_objects_value) === false;
+  $show_page_header     = array_search('hide_page_header', $hidden_objects_value)     === false;
+  $show_featured_image  = array_search('hide_featured_image', $hidden_objects_value)  === false;
+  $show_page_excerpt    = array_search('hide_page_excerpt', $hidden_objects_value)    === false;
+  $show_page_content    = array_search('hide_content', $hidden_objects_value)         === false;
+  $show_sidebar         = array_search('hide_sidebar', $hidden_objects_value)         === false;
 }
 
  ?>
@@ -96,6 +98,13 @@ if(!empty($hidden_objects)){
 						<?php endif; ?>
 					<?php endif; ?>
 				</div>
+
+        <?php if ($show_sidebar): ?>
+          <div class="col-sm-4">
+            <h3><?php _e('Contact us', 'html5blank'); ?></h3>
+            <?php echo do_shortcode('[contact-form-7 id="4752" title="Contact us"]'); ?>
+          </div>
+        <?php endif; ?>
 			</div>
 		</div>
 	</section>
@@ -112,13 +121,20 @@ if( have_rows('flex_content') ):
 	 // loop through the rows of data
 	while ( have_rows('flex_content') ) : the_row();
 	  if( get_row_layout() == 'section' ):
+
+      $title = get_sub_field('title');
+      $paragraph = get_sub_field('paragraph');
+      $link = get_sub_field('link');
+
+      $should_create_on_top_container = (!empty($title)) || (!empty($paragraph)) || (!empty($link));
 	?>
 		<section class="section <?php
     $section_css_class = get_sub_field_object('section_css_class');
     if(!empty($section_css_class)){
       echo join($section_css_class['value'], ' ');
-    } ?>">
+    } ?> <?php echo (!$should_create_on_top_container) ? 'section-map' : '' ; ?>">
 			<?php
+
 			$background_type = get_sub_field('background_type');
 			if ( $background_type == 'image'): ?>
 
@@ -134,53 +150,59 @@ if( have_rows('flex_content') ):
         <!-- Show google map -->
         <?php
         $background_map = get_sub_field('map');
-        if (!empty($background_map)):?>
+        if (!empty($background_map)):
+          $zoom = get_sub_field('map_zoom');?>
 
-          <!-- Load scripts and stuff -->
-          <?php get_template_part('google-map'); ?>
-
-          <div  class="section-background acf-map" style="margin: 0;">
-            <div class="marker"
-                  data-lat="<?php echo $background_map['lat']; ?>"
-                  data-lng="<?php echo $background_map['lng']; ?>"></div>
+          <div class="acf-map-overlay">
+            <div class="text visible-xs visible-sm"><?php echo _e('Tap to use the map', 'html5blank'); ?></div>
+            <!-- <div class="text hidden-xs hidden-sm"><?php //echo _e('Click to use the map', 'html5blank'); ?></div> -->
           </div>
+          <iframe class="section-background acf-map"
+                  width="600"
+                  height="450"
+                  frameborder="0"
+                  style="border:0"
+                  src="https://www.google.com/maps/embed/v1/search?q=<?php echo $background_map['address']; ?>&key=AIzaSyDFbnmht3Jgsolghj6cCesCO7qO2jikl9Y&zoom=<?php echo (empty($zoom)) ? 10 : $zoom; ?>"
+                  allowfullscreen>
+          </iframe>
          <?php endif; ?>
 
 			<?php endif; ?>
 
 
-			<div class="on-top-relative container">
-				<!-- The section title -->
-				<?php
-				$title = get_sub_field('title');
-				if ( !empty($title)): ?>
-					<h3 class="section-title">
-						<?php echo $title ?>
-					</h3>
-				<?php endif; ?>
+      <?php
+      if ($should_create_on_top_container): ?>
+        <div class="on-top-relative container">
+          <!-- The section title -->
+          <?php
+          if ( !empty($title)): ?>
+            <h3 class="section-title">
+              <?php echo $title ?>
+            </h3>
+          <?php endif; ?>
 
-				<!-- The section paragraph -->
-				<?php
-				$paragraph = get_sub_field('paragraph');
-				$link = get_sub_field('link');
-
-				if ( !empty($paragraph)): ?>
-					<p class="section-paragraph" style="<?php echo (empty($link)) ? 'margin-bottom: 20px;' : '' ?>">
-						<?php echo $paragraph ?>
-					</p>
-				<?php endif; ?>
+          <!-- The section paragraph -->
+          <?php
+          if ( !empty($paragraph)): ?>
+            <p class="section-paragraph" style="<?php echo (empty($link)) ? 'margin-bottom: 20px;' : '' ?>">
+              <?php echo $paragraph ?>
+            </p>
+          <?php endif; ?>
 
 
-				<!-- The section paragraph -->
-				<?php
-				if ( !empty($link)): ?>
-					<a href="<?php echo get_the_permalink($link->ID); ?>" class="btn btn-autostyle">
-						<?php echo get_the_title($link->ID); ?>
-					</a>
-				<?php endif; ?>
+          <!-- The section paragraph -->
+          <?php
+          if ( !empty($link)): ?>
+            <a href="<?php echo get_the_permalink($link->ID); ?>" class="btn btn-autostyle">
+              <?php echo get_the_title($link->ID); ?>
+            </a>
+          <?php endif; ?>
 
 
-			</div>
+        </div>
+      <?php endif; ?>
+
+
 		</section>
 
 	<?php

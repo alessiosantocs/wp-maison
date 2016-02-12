@@ -21,6 +21,7 @@
 			if (screenWidth > 480) {
 				if(s.hasClass("fullscreen")){
 					s.slick({
+						lazyLoad: "ondemand",
 						arrows: true,
 					  centerMode: true,
 					  centerPadding: "60px",
@@ -31,6 +32,7 @@
 					});
 				}else{
 					s.slick({
+						lazyLoad: "ondemand",
 						arrows: true,
 					  centerMode: true,
 					  centerPadding: "60px",
@@ -43,6 +45,7 @@
 			}else{
 				if(s.hasClass("fullscreen")){
 					s.slick({
+						lazyLoad: "ondemand",
 						arrows: false,
 						centerMode: false,
 						centerPadding: "60px",
@@ -53,6 +56,7 @@
 					});
 				}else {
 					s.slick({
+						lazyLoad: "ondemand",
 						arrows: false,
 						centerMode: false,
 						centerPadding: "60px",
@@ -106,15 +110,54 @@
 
 
 		// Daterange picker
-		$(".daterange-checkin").attr("role", "check-in");
-		$(".daterange-checkout").attr("role", "check-out");
-		var rangeDatepicker = new window.TpDatepickerRange({
-			legend: true,
-			roles: ["check-in", "check-out"],
-			offsets: {top: 0, left: 0}
+		if($(".daterange-checkin").length > 0){
+
+			$(".daterange-checkin").attr("role", "check-in");
+			$(".daterange-checkout").attr("role", "check-out");
+			var rangeDatepicker = new window.TpDatepickerRange({
+				legend: true,
+				roles: ["check-in", "check-out"],
+				offsets: {top: 0, left: 0}
+			});
+			rangeDatepicker;
+		}
+
+		// Lazy loading css
+		var attrname = "data-lazy";
+		var checkScroll = function(){
+			var lazydivs = $("div[" + attrname + "]");
+			var bodyScrollTop = $("body").scrollTop();
+			var bodyScrollLimit = bodyScrollTop + $(window).height();
+
+			lazydivs.each(function(){
+				var lazydiv = $(this);
+				var lazyurl = lazydiv.attr(attrname);
+				var lazytop = lazydiv.offset().top;
+
+				if(lazytop < bodyScrollLimit){
+					lazydiv.css("background-image", "url(" + lazyurl + ")");
+				}
+			});
+		};
+		$(window).scroll(checkScroll);
+		checkScroll();
+
+
+
+
+
+		// Delete acf-map-overlay on click
+		var mapTimeout;
+		$(".acf-map-overlay").mouseenter(function(){
+			var layover = $(this);
+			mapTimeout = window.setTimeout(function(){
+				layover.remove();
+			}, 800);
+		})
+		.mouseleave(function(){
+			window.clearTimeout(mapTimeout);
 		});
-		rangeDatepicker;
+
 
 	});
-
 } ( this, jQuery));

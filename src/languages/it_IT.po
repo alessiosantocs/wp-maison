@@ -214,6 +214,9 @@ msgstr "ospiti"
 msgid "beds"
 msgstr "letti"
 
+msgid "sofa beds"
+msgstr "divani letto"
+
 msgid "bedrooms"
 msgstr "camere da letto"
 
@@ -318,6 +321,10 @@ msgstr "Un luogo adatto all'utilizzo di un laptop"
 msgid "Stay at Boschi di Montecalvi"
 msgstr "Vieni a Boschi di Montecalvi"
 
+#: ../single-bnb_apartment.php
+msgid "Amenities, availability and price"
+msgstr "Caratteristiche, disponibilità e prezzi"
+
 #: ../archive-bnb_apartment.php:6
 msgid "Each accomodation is unique. Find the one that’s best for you"
 msgstr "Ogni appartamento è unico. Trova quello che fa per te"
@@ -325,6 +332,14 @@ msgstr "Ogni appartamento è unico. Trova quello che fa per te"
 #: ../loop-bnb_apartment.php:32
 msgid "Availability & price"
 msgstr "Disponibilità e prezzi"
+
+#: ../single-bnb_apartment.php
+msgid "Features, amenities and photos"
+msgstr "Caratteristiche, servizi e foto"
+
+#: ../loop-bnb_apartment.php
+msgid "Description & photos"
+msgstr "Foto e descrizione"
 
 #: ../footer.php:41
 msgid "Meet us"
@@ -353,3 +368,14 @@ msgstr "Contattaci"
 #: ../footer.php:83
 msgid "contact-us"
 msgstr "contattaci"
+
+
+
+msgid "day"
+msgstr "giornata"
+
+msgid "evening"
+msgstr "serata"
+
+msgid "[contact-form-7 id='4643' title='Check Availability Form ENG']"
+msgstr "[contact-form-7 id='5120' title='Check Availability Form ITA']"

@@ -1,0 +1,53 @@
+{
+    "key": "group_567952e29ca4a",
+    "title": "Apartment fields - Side",
+    "fields": [
+        {
+            "key": "field_5679534e9ee6a",
+            "label": "Featured image position",
+            "name": "featured_image_position",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top left": "top left",
+                "top center": "top center",
+                "top right": "top right",
+                "center left": "center left",
+                "center center": "center center",
+                "center right": "center right",
+                "bottom left": "bottom left",
+                "bottom center": "bottom center",
+                "bottom right": "bottom right"
+            },
+            "other_choice": 1,
+            "save_other_choice": 1,
+            "default_value": "center center",
+            "layout": "horizontal"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "bnb_apartment"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1450867962
+}

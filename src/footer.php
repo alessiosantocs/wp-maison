@@ -57,9 +57,9 @@
 			<section class="section section-large-padding">
 				<div class="container text-center">
 					<div class="rating" style="margin-bottom: 40px;">
-						<div>
+						<!-- <div>
 							<img src="<?php echo get_template_directory_uri(); ?>/img/resources/stars.png" height="40" />
-						</div>
+						</div> -->
 						<p>
 							<?php echo sprintf( __( 'More than %s guests like you recommended us on:', 'html5blank' ), '300' ); ?>
 						</p>
@@ -89,7 +89,7 @@
 
 
 			<!-- footer -->
-			<section class="section section-medium-padding text-center">
+			<section class="section section-medium-padding text-center footer">
 				<div class="section-background" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/resources/section_background.png);">
 				</div>
 
@@ -98,7 +98,9 @@
 					<div>
 						<img src="<?php echo get_template_directory_uri(); ?>/img/resources/logotype.png" height="30" />
 					</div>
-					<br>
+					<div class="container footer-menu-container">
+						<?php html5blank_footer_nav(); ?>
+					</div>
 					<p class="small">
 						&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>.
 					</p>
@@ -116,12 +118,12 @@
 
 		<!-- analytics -->
 		<script>
-		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
-		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
-		l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
-		ga('send', 'pageview');
+		
+    var _gaq=[['_setAccount','UA-17185785-64'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+
 		</script>
 
 	</body>

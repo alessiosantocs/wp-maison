@@ -1,0 +1,259 @@
+{
+    "key": "group_5641ee3f94080",
+    "title": "Apartment fields",
+    "fields": [
+        {
+            "key": "field_5641d97bb4ad9",
+            "label": "Gallery",
+            "name": "gallery",
+            "type": "gallery",
+            "instructions": "Create a NG Gallery and link it here",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min": 0,
+            "max": 0,
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_56420baf37bf2",
+            "label": "Max guests",
+            "name": "max_guests",
+            "type": "number",
+            "instructions": "How many fit in this apartment?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5649e4d1db04e",
+            "label": "Number of bedrooms",
+            "name": "number_of_bedrooms",
+            "type": "number",
+            "instructions": "How many rooms are in your apartment?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_56424f3437bf3",
+            "label": "Beds",
+            "name": "number_of_beds",
+            "type": "number",
+            "instructions": "How many beds does the apartment have?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5679560be237b",
+            "label": "Sofa beds",
+            "name": "number_of_sofa_beds",
+            "type": "number",
+            "instructions": "How many sofa beds does the apartment have?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5649e697c2be7",
+            "label": "Number of bathrooms",
+            "name": "number_of_bathrooms",
+            "type": "number",
+            "instructions": "How many bathrooms does the apartment have?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_5641d796ad8d4",
+            "label": "Amenities",
+            "name": "amenities",
+            "type": "checkbox",
+            "instructions": "Select amenities available in the apartment",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "Kitchen": "Kitchen",
+                "TV": "TV",
+                "Essentials": "Essentials",
+                "Shampoo": "Shampoo",
+                "Heating": "Heating",
+                "Air Conditioning": "Air Conditioning",
+                "Washer": "Washer",
+                "Free Parking on Premises": "Free Parking on Premises",
+                "Wireless Internet": "Wireless Internet",
+                "Breakfast": "Breakfast",
+                "Pets Allowed": "Pets Allowed",
+                "Family\/Kid Friendly": "Family\/Kid Friendly",
+                "Suitable for Events": "Suitable for Events",
+                "Smoke Free": "Smoke Free",
+                "Wheelchair Accessible": "Wheelchair Accessible",
+                "Indoor Fireplace": "Indoor Fireplace",
+                "Pool": "Pool",
+                "Hangers": "Hangers",
+                "Iron": "Iron",
+                "Hair Dryer": "Hair Dryer",
+                "Laptop Friendly Workspace": "Laptop Friendly Workspace"
+            },
+            "default_value": {
+                "Wireless Internet": "Wireless Internet",
+                "Pool": "Pool",
+                "Kitchen": "Kitchen",
+                "Internet": "Internet",
+                "TV": "TV",
+                "Family\/Kid Friendly": "Family\/Kid Friendly",
+                "Essentials": "Essentials",
+                "Shampoo": "Shampoo",
+                "Heating": "Heating",
+                "Air Conditioning": "Air Conditioning",
+                "Free Parking on Premises": "Free Parking on Premises",
+                "Breakfast": "Breakfast",
+                "Pets Allowed": "Pets Allowed",
+                "Smoke Free": "Smoke Free",
+                "Hangers": "Hangers",
+                "Iron": "Iron",
+                "Hair Dryer": "Hair Dryer",
+                "Laptop Friendly Workspace": "Laptop Friendly Workspace"
+            },
+            "layout": "horizontal",
+            "toggle": 0
+        },
+        {
+            "key": "field_5641eef15dd2b",
+            "label": "Location",
+            "name": "location",
+            "type": "google_map",
+            "instructions": "Where is your listing located?",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": "",
+            "height": ""
+        },
+        {
+            "key": "field_56420b6037bf1",
+            "label": "Final description",
+            "name": "final_description",
+            "type": "wysiwyg",
+            "instructions": "Add your description that will be displayed at the bottom of the page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "bnb_apartment"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1453113943
+}

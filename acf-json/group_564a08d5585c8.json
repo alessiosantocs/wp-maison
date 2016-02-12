@@ -1,0 +1,87 @@
+{
+    "key": "group_564a08d5585c8",
+    "title": "Pages fields",
+    "fields": [
+        {
+            "key": "field_564a0a31cc1dd",
+            "label": "Featured title",
+            "name": "featured_title",
+            "type": "text",
+            "instructions": "Title shown when featured",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_564f3ce2eb261",
+            "label": "Featured subtitle",
+            "name": "featured_subtitle",
+            "type": "text",
+            "instructions": "Used as subtitle of the page title",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
+            "key": "field_564a08f0fd259",
+            "label": "Page excerpt",
+            "name": "page_excerpt",
+            "type": "text",
+            "instructions": "Edit the page excerpt that will be displayed on a featured section",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "This is a featured section excerpt",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1449826258
+}

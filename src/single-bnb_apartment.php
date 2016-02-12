@@ -6,7 +6,7 @@
 			<h1>
 				<?php the_title(); ?>
 			</h1>
-			<h2 class="normal-font"><?php _e( 'Amenities, availability and price', 'html5blank' ); ?></h2>
+			<h2 class="normal-font"><?php _e( 'Features, amenities and photos', 'html5blank' ); ?></h2>
 		</div>
 	</div>
 
@@ -20,7 +20,7 @@
 		if( $images ): ?>
 		<?php foreach( $images as $image ): ?>
 				<div>
-					<img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+					<img data-lazy="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" data-height="<?php echo $image['height']; ?>" data-width="<?php echo $image['width']; ?>" class="slider-img" />
 					<div class="bnb_apartment-slider-description">
 						<?php echo $image['caption']; ?>
 					</div>
@@ -29,6 +29,43 @@
 		<?php endif; ?>
 
 	</div>
+	<script type="text/javascript">
+		// Special fix for preloading
+		(function(){
+			var fixImages = function(){
+				window.setInterval(function(){
+					var imgs = $(".slider-img");
+					if ($(".bnb_apartment-slider").hasClass("fullscreen")) {
+						console.log("exit");
+						return false;
+					}
+					// console.log(imgs.length);
+					imgs.each(function(){
+						var img = $(this);
+						var height = img.attr("data-height");
+						var width = img.attr("data-width");
+						var newWidth = 0;
+
+						var domHeight = img.height();
+
+						newWidth = width * domHeight / height;
+
+						if (newWidth == 0) {
+							console.error("%s | %s | %s", width, height, domHeight);
+						}
+
+						img.attr("width", newWidth);
+					});
+				}, 100);
+			};
+
+			// Only on desktop
+			if ($(window).height() >= 768) {
+				fixImages();
+			}
+		})()
+
+	</script>
 
 	<!-- The content of the apartment -->
 	<!-- Apartment description -->
@@ -49,16 +86,34 @@
 					<!-- /article -->
 
 					<div class="col-sm-4 col-sm-offset-1 booking-form">
-						<?php echo do_shortcode('[contact-form-7 id="4607" title="Contact form 1"]'); ?>
+						<?php echo do_shortcode(__("[contact-form-7 id='4643' title='Check Availability Form ENG']", "html5blank")); ?>
 						<script type="text/javascript">
+							var daylabel = "<?php _e('day', 'html5blank'); ?>";
+							var eveninglabel = "<?php _e('evening', 'html5blank'); ?>";
+							var datetime = new Date();
+							var hours = datetime.getHours();
+							var partofday;
+
+							if(hours < 17){
+								partofday = daylabel;
+							}else{
+								partofday = eveninglabel;
+							}
+
+							var updateForm = function(){
+								jQuery("[name=apartment]").val("<?php the_title(); ?>");
+								jQuery("[name=partofday]").val(partofday);
+							};
+
 							jQuery(".booking-form form").on("reset", function(){
 								// When the form is reset
 								console.log("Form has been reset.")
 								window.setTimeout(function(){
-									jQuery("[name=apartment]").val("<?php the_title(); ?>");
+									updateForm();
 								}, 100);
 							});
-							jQuery("[name=apartment]").val("<?php the_title(); ?>");
+
+							updateForm();
 						</script>
 					</div>
 				</div>
@@ -108,18 +163,35 @@
 						<?php _e( 'Details', 'html5blank' ); ?>
 					</div>
 					<div class="bnb_apartment-amenities">
-						<div class="bnb_apartment-amenities-item present">
-							<?php the_field('max_guests'); ?> <?php _e('guests', 'html5blank'); ?>
-						</div>
-						<div class="bnb_apartment-amenities-item present">
-							<?php the_field('number_of_beds'); ?> <?php _e('beds', 'html5blank'); ?>
-						</div>
-						<div class="bnb_apartment-amenities-item present">
-							<?php the_field('number_of_bedrooms'); ?> <?php _e('bedrooms', 'html5blank'); ?>
-						</div>
-						<div class="bnb_apartment-amenities-item present">
-							<?php the_field('number_of_bathrooms'); ?> <?php _e('bathrooms', 'html5blank'); ?>
-						</div>
+						<?php if (($max_guests = get_field('max_guests') > 0)): ?>
+							<div class="bnb_apartment-amenities-item present">
+								<?php echo $max_guests; ?> <?php _e('guests', 'html5blank'); ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if (($number_of_beds = get_field('number_of_beds') > 0)): ?>
+							<div class="bnb_apartment-amenities-item present">
+								<?php echo $number_of_beds; ?> <?php _e('beds', 'html5blank'); ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if (($number_of_sofa_beds = get_field('number_of_sofa_beds') > 0)): ?>
+							<div class="bnb_apartment-amenities-item present">
+								<?php echo $number_of_sofa_beds; ?> <?php _e('sofa beds', 'html5blank'); ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if (($number_of_bedrooms = get_field('number_of_bedrooms') > 0)): ?>
+							<div class="bnb_apartment-amenities-item present">
+								<?php echo $number_of_bedrooms; ?> <?php _e('bedrooms', 'html5blank'); ?>
+							</div>
+						<?php endif; ?>
+
+						<?php if (($number_of_bathrooms = get_field('number_of_bathrooms') > 0)): ?>
+							<div class="bnb_apartment-amenities-item present">
+								<?php echo $number_of_bathrooms; ?> <?php _e('bathrooms', 'html5blank'); ?>
+							</div>
+						<?php endif; ?>
 					</div>
 
 				</div>
@@ -143,8 +215,8 @@
 					if( $choices ): ?>
 					<div class="bnb_apartment-amenities">
 						<?php foreach( $choices as $c ): ?>
-						<div class="bnb_apartment-amenities-item <?php if(array_search($c, $value)){echo 'present';} ?>">
-							<?php if(array_search($c, $value)){echo '&nbsp;&#10003;&nbsp;';}else{echo '&nbsp;&#10005;&nbsp;';} ?>
+						<div class="bnb_apartment-amenities-item <?php if(array_search($c, $value) !== false){echo 'present';} ?>">
+							<?php if(array_search($c, $value) !== false){echo '&nbsp;&#10003;&nbsp;';}else{echo '&nbsp;&#10005;&nbsp;';} ?>
 							<?php _e($c, 'html5blank'); ?>
 						</div>
 						<?php endforeach; ?>
@@ -164,11 +236,28 @@ $location = get_field('location');
 if( !empty($location) ): ?>
 
 	<!-- Load scripts and stuff -->
-	<?php get_template_part('google-map'); ?>
+	<?php// get_template_part('google-map'); ?>
 
-	<div class="acf-map" style="margin: 0;height:400px;">
+	<!-- <div class="acf-map" style="margin: 0;height:400px;">
 		<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+	</div> -->
+
+	<div class="acf-map-container">
+		<div class="acf-map-overlay">
+			<div class="text visible-xs visible-sm"><?php echo _e('Tap to use the map', 'html5blank'); ?></div>
+			<!-- <div class="text hidden-xs hidden-sm"><?php // echo _e('Click to use the map', 'html5blank'); ?></div> -->
+		</div>
+		<iframe class="acf-map"
+						width="600"
+						height="450"
+						frameborder="0"
+						style="border:0"
+						src="https://www.google.com/maps/embed/v1/search?q=<?php echo $location['address']; ?>&key=AIzaSyDFbnmht3Jgsolghj6cCesCO7qO2jikl9Y&zoom=10"
+						allowfullscreen>
+		</iframe>
 	</div>
+
+
 
 <?php endif; ?>
 

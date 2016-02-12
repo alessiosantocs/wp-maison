@@ -215,6 +215,9 @@ msgstr ""
 msgid "beds"
 msgstr ""
 
+msgid "sofa beds"
+msgstr ""
+
 msgid "bedrooms"
 msgstr ""
 
@@ -323,8 +326,20 @@ msgstr ""
 msgid "Each accomodation is unique. Find the one that’s best for you"
 msgstr ""
 
+#: ../single-bnb_apartment.php
+msgid "Amenities, availability and price"
+msgstr ""
+
 #: ../loop-bnb_apartment.php:32
 msgid "Availability & price"
+msgstr ""
+
+#: ../single-bnb_apartment.php
+msgid "Features, amenities and photos"
+msgstr ""
+
+#: ../loop-bnb_apartment.php
+msgid "Description & photos"
 msgstr ""
 
 #: ../footer.php:41
@@ -353,4 +368,18 @@ msgstr ""
 
 #: ../footer.php:83
 msgid "contact-us"
+msgstr ""
+
+
+
+
+
+
+msgid "day"
+msgstr ""
+
+msgid "evening"
+msgstr ""
+
+msgid "[contact-form-7 id='4643' title='Check Availability Form ENG']"
 msgstr ""

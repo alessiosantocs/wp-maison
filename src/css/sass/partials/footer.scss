@@ -3,5 +3,43 @@
  * ---
  */
 
+.footer .footer-menu-container{
+  padding: 10px;
+  ul{
+    @extend .clearfix;
 
-.footer {}
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 13px;
+    float: none;
+
+    li{
+
+      display: inline-block;
+      float: none;
+
+      a{
+        display: inline-block;
+        padding: 15px 10px;
+      }
+
+      @media (min-width: $mobile_breakpoint){
+
+        &:after{
+          content: "/";
+          color: #ccc;
+        }
+
+        &:last-child:after{
+          content: "";
+        }
+      }
+
+
+    }
+  }
+}
