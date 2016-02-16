@@ -60,7 +60,13 @@
 					<!-- nav -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<div style="padding: 15px;" class="visible-xs visible-sm">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img" height="80">
+							<?php if ( get_theme_mod( 'maison_navbar_logo' ) ) : ?>
+								<img src="<?php echo esc_url( get_theme_mod( 'maison_navbar_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" class="logo-img" height="80">
+							<?php else : ?>
+						    <hgroup>
+									<?php bloginfo( 'name' ); ?>
+						    </hgroup>
+							<?php endif; ?>
 						</div>
 						<?php html5blank_nav("pull-right"); ?>
 					</div>

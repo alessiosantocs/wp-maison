@@ -38,7 +38,7 @@ class MM_FooterFeaturedSectionWidget extends WP_Widget {
 
 			<div class="container on-top-relative">
 				<div class="row">
-					
+
 					<div class="col-sm-6">
 						<div class="animatable move-up">
 							<h3 class="section-title" style="margin-top: 80px;">
@@ -51,9 +51,11 @@ class MM_FooterFeaturedSectionWidget extends WP_Widget {
 
 						<div class="animatable fade-in-up">
 							<?php if (!empty($widget_link)): ?>
-								<a href="<?php echo get_permalink( get_page_by_path( __( 'meet', 'html5blank' ) ) ); ?>" class="btn btn-primary btn-outlined">
-									<?php _e( 'Meet us', 'html5blank' ); ?>
+
+								<a href="<?php echo get_permalink($widget_link->ID); ?>" class="btn btn-primary btn-outlined">
+									<?php echo get_the_title($widget_link->ID); ?>
 								</a>
+
 							<?php endif; ?>
 						</div>
 					</div>

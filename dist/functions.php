@@ -8,6 +8,7 @@
 require_once "modules/is-debug.php";
 
 require_once "modules/theme-customization.php";
+require_once "modules/footer-featured-section-widget.php";
 
 /*------------------------------------*\
     External Modules/Files
@@ -239,6 +240,8 @@ function add_slug_to_body_class($classes)
     } elseif (is_singular()) {
         $classes[] = sanitize_html_class($post->post_name);
     }
+
+    $classes[] = get_theme_mod( 'maison_navbar_style' );
 
     return $classes;
 }
