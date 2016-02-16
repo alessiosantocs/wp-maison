@@ -319,7 +319,7 @@ msgstr ""
 # / Airbnb amenities
 
 #: ../archive-bnb_apartment.php:5
-msgid "Stay at Boschi di Montecalvi"
+msgid "Stay at %s"
 msgstr ""
 
 #: ../archive-bnb_apartment.php:6

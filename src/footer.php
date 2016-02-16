@@ -1,5 +1,7 @@
 
 
+<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')) ?>
+
 			<?php
 			$show_footer_featured_item = true;
 			if (is_page()){
@@ -117,14 +119,10 @@
 		<?php wp_footer(); ?>
 
 		<!-- analytics -->
-		<script>
-		
-    var _gaq=[['_setAccount','UA-17185785-64'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-
-		</script>
+		<script>var _gaq=[['_setAccount','UA-17185785-64'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));</script>
 
 	</body>
 </html>

@@ -2,7 +2,8 @@
 
 	<div class="container">
 		<div class="page-header">
-			<h1><?php _e( 'Stay at Boschi di Montecalvi', 'html5blank' ); ?></h1>
+
+			<h1><?php echo sprintf( __( 'Stay at %s', 'html5blank' ), get_bloginfo( 'name' ) ); ?></h1>
 			<h2 class="normal-font"><?php _e( 'Each accomodation is unique. Find the one that’s best for you', 'html5blank' ); ?></h2>
 		</div>
 	</div>

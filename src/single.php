@@ -1,8 +1,17 @@
 <?php get_header(); ?>
 
+	<div class="container">
+		<div class="page-header">
+			<h1>
+				<?php the_title(); ?>
+			</h1>
+			<h2 class="normal-font"><?php _e( 'Latest Posts', 'html5blank' ); ?></h2>
+		</div>
+	</div>
+
 	<main role="main">
 	<!-- section -->
-	<section>
+	<section class="container">
 
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -16,12 +25,6 @@
 				</a>
 			<?php endif; ?>
 			<!-- /post thumbnail -->
-
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
 
 			<!-- post details -->
 			<span class="date">
@@ -39,7 +42,7 @@
 
 			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
 
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
+			<!-- <p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p> -->
 
 			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
 
@@ -53,7 +56,7 @@
 	<?php else: ?>
 
 		<!-- article -->
-		<article>
+		<article class="container">
 
 			<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
 
@@ -65,7 +68,5 @@
 	</section>
 	<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

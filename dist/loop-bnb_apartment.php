@@ -58,7 +58,7 @@ if (have_posts()): while (have_posts()) : the_post(); ?>
 <?php else: ?>
 
 	<!-- article -->
-	<article>
+	<article class="container section">
 		<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
 	</article>
 	<!-- /article -->

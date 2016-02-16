@@ -1,10 +1,14 @@
 <?php get_header(); ?>
 
+<div class="container">
+	<div class="page-header">
+		<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
+	</div>
+</div>
+
 	<main role="main">
 		<!-- section -->
-		<section>
-
-			<h1><?php _e( 'Latest Posts', 'html5blank' ); ?></h1>
+		<section class="container">
 
 			<?php get_template_part('loop'); ?>
 
@@ -13,7 +17,5 @@
 		</section>
 		<!-- /section -->
 	</main>
-
-<?php get_sidebar(); ?>
 
 <?php get_footer(); ?>

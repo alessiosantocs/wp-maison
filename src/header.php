@@ -5,8 +5,12 @@
 		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' : '; } ?><?php bloginfo('name'); ?></title>
 
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
-		<link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
-		<link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
+
+		<?php if ( get_theme_mod( 'maison_favicon' ) ) : ?>
+			<link href="<?php echo get_theme_mod( 'maison_favicon' ); ?>" rel="shortcut icon">
+			<link href="<?php echo get_theme_mod( 'maison_favicon' ); ?>" rel="apple-touch-icon-precomposed">
+			<link href="<?php echo get_theme_mod( 'maison_favicon' ); ?>" rel="apple-touch-icon">
+		<?php endif; ?>
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?>" href="<?php bloginfo('rss2_url'); ?>" />
 
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -40,8 +44,15 @@
 				        <span class="icon-bar second-bar"></span>
 							</div>
 			      </button>
-			      <a class="navbar-brand" href="<?php echo home_url(); ?>">
-			        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img" height="80">
+
+			      <a class="navbar-brand" href="<?php echo esc_url(home_url()); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+							<?php if ( get_theme_mod( 'maison_navbar_logo' ) ) : ?>
+								<img src="<?php echo esc_url( get_theme_mod( 'maison_navbar_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" class="logo-img" height="80">
+							<?php else : ?>
+						    <hgroup>
+									<?php bloginfo( 'name' ); ?>
+						    </hgroup>
+							<?php endif; ?>
 			      </a>
 			    </div>
 					<!-- /logo -->

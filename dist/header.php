@@ -40,8 +40,15 @@
 				        <span class="icon-bar second-bar"></span>
 							</div>
 			      </button>
-			      <a class="navbar-brand" href="<?php echo home_url(); ?>">
-			        <img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img" height="80">
+
+			      <a class="navbar-brand" href="<?php echo esc_url(home_url()); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+							<?php if ( get_theme_mod( 'maison_navbar_logo' ) ) : ?>
+								<img src="<?php echo esc_url( get_theme_mod( 'maison_navbar_logo' ) ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" class="logo-img" height="80">
+							<?php else : ?>
+						    <hgroup>
+									<?php bloginfo( 'name' ); ?>
+						    </hgroup>
+							<?php endif; ?>
 			      </a>
 			    </div>
 					<!-- /logo -->
