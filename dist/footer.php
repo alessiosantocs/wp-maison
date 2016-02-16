@@ -1,5 +1,6 @@
 
 
+
 			<?php
 			$show_footer_featured_item = true;
 			if (is_page()){
@@ -19,37 +20,7 @@
 
 		<?php if ($show_footer_featured_item): ?>
 			<!-- section -->
-			<section class="section section-inverted section-medium-padding css-animate on-hover">
-
-				<div class="section-background enhance-img" style="background-image: url(<?php echo get_template_directory_uri(); ?>/img/resources/random_background.jpg);">
-				</div>
-
-				<div class="container on-top-relative">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="animatable move-up">
-								<h3 class="section-title" style="margin-top: 80px;">
-									<?php _e( 'The team', 'html5blank' ) ?>
-								</h3>
-								<p class="section-paragraph" style="margin-bottom: 20px;">
-									<?php _e( 'Let Giada and her team take care of you.', 'html5blank' ) ?>
-								</p>
-							</div>
-
-							<div class="animatable fade-in-up">
-								<a href="<?php echo get_permalink( get_page_by_path( __( 'meet', 'html5blank' ) ) ); ?>" class="btn btn-primary btn-outlined">
-									<?php _e( 'Meet us', 'html5blank' ); ?>
-								</a>
-							</div>
-						</div>
-						<div class="col-sm-6 text-center">
-							<img src="<?php echo get_template_directory_uri(); ?>/img/resources/chief_of_staff.png" height="250" />
-						</div>
-					</div>
-
-				</div>
-
-			</section>
+			<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')) ?>
 			<!-- /section -->
 		<?php endif; ?>
 
@@ -117,14 +88,10 @@
 		<?php wp_footer(); ?>
 
 		<!-- analytics -->
-		<script>
-		
-    var _gaq=[['_setAccount','UA-17185785-64'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-
-		</script>
+		<script>var _gaq=[['_setAccount','UA-17185785-64'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));</script>
 
 	</body>
 </html>

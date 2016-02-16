@@ -9,6 +9,11 @@
   z-index: 10;
 }
 
+// Solid navbar if body has class solid
+body.navbar_style_solid .navbar-parent{
+  position: static !important;
+}
+
 .page-header{
   border: none;
   margin-bottom: 40px;

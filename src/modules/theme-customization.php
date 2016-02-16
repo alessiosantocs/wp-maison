@@ -20,13 +20,27 @@
     // Favicon & App icon
     $maison_favicon = 'maison_favicon';
     $wp_customize->add_setting( $maison_favicon );
-    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, $maison_favicon, array(
+    $wp_customize->add_control( new WP_Customize_Site_Icon_Control( $wp_customize, $maison_favicon, array(
       'label'    => __( 'Favicon and app icon', 'maison' ),
       'description' => 'Png icon to use as favicon and app icon. Default: No Favicon.',
       'section'  => 'maison_customization_section',
       'settings' => $maison_favicon
     ) ) );
 
+    // Navbar style
+    $maison_navbar_style = 'maison_navbar_style';
+    $wp_customize->add_setting( $maison_navbar_style );
+    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, $maison_navbar_style, array(
+      'label'    => __( 'Navbar style', 'maison' ),
+      'description' => 'Choose how the navbar is displayed. Transparent or solid.',
+      'section'  => 'maison_customization_section',
+      'settings' => $maison_navbar_style,
+      'type' => 'select',
+      'choices' => array(
+        'navbar_style_transparent' => __('Transparent', 'maison'),
+        'navbar_style_solid' => __('Solid', 'maison')
+      )
+    ) ) );
   }
 
 
