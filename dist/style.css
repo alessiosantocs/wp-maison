@@ -8027,6 +8027,12 @@ p.lead {
   .section.section-primary .section-title {
     font-size: 60px;
   }
+  .section.section-primary .section-title.section-title-longest {
+    font-size: 46px;
+  }
+  .section.section-primary .section-title.section-title-long {
+    font-size: 50px;
+  }
 }
 .section.section-primary .section-paragraph {
   font-size: 21px;
@@ -8207,27 +8213,30 @@ input[type="search"] {
  * Gallery & images
  */
 .wp-caption {
-  background: white;
-  border: thin solid #F0F0F0;
-  max-width: 95%;
-  padding: 5px 5px;
-  text-align: center;
+  position: relative;
+  width: auto !important;
 }
 .wp-caption img {
-  width: auto;
-  max-width: 98.5%;
   height: auto;
   border: 0 none;
   padding: 0;
   margin: 0;
 }
+.wp-caption.alignnone img {
+  width: 100% !important;
+}
 
 .wp-caption .wp-caption-text,
 .gallery-caption {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
   margin: 0;
-  padding: 0 5px 5px;
-  font-size: 140%;
-  line-height: 1.5;
+  font-size: 13px;
+  padding: 5px;
 }
 
 /**
@@ -8677,6 +8686,27 @@ body.navbar_style_solid .navbar-parent {
     position: fixed;
   }
 }
+.slick-slider.bnb_apartment-slider .slider-img {
+  height: 300px;
+}
+@media (min-height: 700px) {
+  .slick-slider.bnb_apartment-slider .slider-img {
+    height: 350px;
+  }
+}
+@media (min-height: 800px) {
+  .slick-slider.bnb_apartment-slider .slider-img {
+    height: 400px;
+  }
+}
+@media (min-height: 900px) {
+  .slick-slider.bnb_apartment-slider .slider-img {
+    height: 450px;
+  }
+}
+.slick-slider.bnb_apartment-slider.fullscreen .slider-img {
+  height: auto;
+}
 .slick-slider.bnb_apartment-slider .navbar {
   display: none;
   z-index: 21;
@@ -8817,6 +8847,23 @@ body.navbar_style_solid .navbar-parent {
 }
 .slick-slider img.slick-loading {
   height: 500px !important;
+}
+
+div[data-lazy]:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ccc;
+  opacity: 1;
+  -webkit-transition: opacity 0.8s 0.8s ease;
+  transition: opacity 0.8s 0.8s ease;
+}
+div[data-lazy].unveil:after {
+  opacity: 0;
 }
 
 body {

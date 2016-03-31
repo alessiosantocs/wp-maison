@@ -2,6 +2,11 @@
 
 
 			<?php
+			global $footer_widget_area_id;
+			if (empty($footer_widget_area_id)) {
+				$footer_widget_area_id = 'widget-area-2';
+			}
+
 			$show_footer_featured_item = true;
 			if (is_page()){
 				$hidden_objects = get_field_object('hide_objects');
@@ -20,7 +25,7 @@
 
 		<?php if ($show_footer_featured_item): ?>
 			<!-- section -->
-			<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-2')) ?>
+			<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar($footer_widget_area_id)) ?>
 			<!-- /section -->
 		<?php endif; ?>
 

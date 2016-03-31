@@ -45,6 +45,27 @@
             "disabled": 0
         },
         {
+            "key": "field_56d969294bda1",
+            "label": "Featured cta",
+            "name": "featured_cta",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
             "key": "field_564a08f0fd259",
             "label": "Page excerpt",
             "name": "page_excerpt",
@@ -83,5 +104,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1449826258
+    "modified": 1457088921
 }

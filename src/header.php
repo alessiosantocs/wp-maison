@@ -6,10 +6,12 @@
 
 		<link href="//www.google-analytics.com" rel="dns-prefetch">
 
-		<?php if ( get_theme_mod( 'maison_favicon' ) ) : ?>
-			<link href="<?php echo get_theme_mod( 'maison_favicon' ); ?>" rel="shortcut icon">
-			<link href="<?php echo get_theme_mod( 'maison_favicon' ); ?>" rel="apple-touch-icon-precomposed">
-			<link href="<?php echo get_theme_mod( 'maison_favicon' ); ?>" rel="apple-touch-icon">
+		<?php if ( get_theme_mod( 'maison_favicon' ) ) :
+			$favicon = wp_get_attachment_image_src( get_theme_mod( 'maison_favicon' ) );
+		?>
+			<link href="<?php echo $favicon[0]; ?>" rel="shortcut icon">
+			<link href="<?php echo $favicon[0]; ?>" rel="apple-touch-icon-precomposed">
+			<link href="<?php echo $favicon[0]; ?>" rel="apple-touch-icon">
 		<?php endif; ?>
 		<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?>" href="<?php bloginfo('rss2_url'); ?>" />
 
