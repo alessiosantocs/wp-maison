@@ -41,6 +41,17 @@
         'navbar_style_solid' => __('Solid', 'maison')
       )
     ) ) );
+
+    // Primary font
+    // $maison_navbar_style = 'maison_primary_font_file';
+    // $wp_customize->add_setting( $maison_navbar_style );
+    // $wp_customize->add_control( new WP_Customize_Control( $wp_customize, $maison_navbar_style, array(
+    //   'label'    => __( 'Primary font file', 'maison' ),
+    //   'description' => 'Upload a custom font for primary texts and titles.',
+    //   'section'  => 'maison_customization_section',
+    //   'settings' => $maison_navbar_style,
+    //   'type' => 'file'
+    // ) ) );
   }
 
 

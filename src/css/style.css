@@ -7610,17 +7610,40 @@ button.close {
   font-weight: normal;
   src: url("fonts/BauerBodoni-Roman.otf") format("opentype");
 }
+@font-face {
+  font-family: 'MilanMaison Primary';
+  font-weight: normal;
+  src: url("fonts/MTTMilano/MTTMilano-UltraBold.otf") format("opentype");
+}
+@font-face {
+  font-family: 'MilanMaison Support';
+  font-weight: normal;
+  src: url("fonts/BrandonGrotesque/Brandon_med.otf") format("opentype");
+}
+@font-face {
+  font-family: 'MilanMaison Support';
+  font-weight: bold;
+  src: url("fonts/BrandonGrotesque/Brandon_bld.otf") format("opentype");
+}
+@font-face {
+  font-family: 'MilanMaison Support';
+  font-weight: lighter;
+  src: url("fonts/BrandonGrotesque/Brandon_light.otf") format("opentype");
+}
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Bauer Bodoni';
+  font-family: "MilanMaison Primary";
   font-weight: normal;
   line-height: 1.3em;
   color: #425560;
 }
 h1.normal-font, h2.normal-font, h3.normal-font, h4.normal-font, h5.normal-font, h6.normal-font, .h1.normal-font, .h2.normal-font, .h3.normal-font, .h4.normal-font, .h5.normal-font, .h6.normal-font {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
+  font-family: "MilanMaison Support", "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
   font-weight: 200;
 }
 
+h1 {
+  text-transform: uppercase;
+}
 @media (min-width: 768px) {
   h1 {
     font-size: 48px;
@@ -7944,7 +7967,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
+  font-family: "MilanMaison Support", "Helvetica Neue", Helvetica, Arial, "Open Sans", sans-serif;
   font-size: 140%;
   line-height: 1.5;
   color: #7e8082;

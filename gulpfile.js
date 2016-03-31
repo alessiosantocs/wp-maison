@@ -72,7 +72,7 @@ gulp.task( "copy", function() {
 			"src/*.{php,png,css}",
 			"src/modules/*.php",
 			"src/img/**/*.{jpg,png,svg,gif,webp,ico}",
-			"src/fonts/*.{woff,woff2,ttf,otf,eot,svg}",
+			"src/fonts/**/*.{woff,woff2,ttf,otf,eot,svg}",
 			"src/languages/*.{po,mo,pot}",
 			"src/acf-json/*.{php,json}"
 		], {

@@ -24,8 +24,29 @@
   src: url("fonts/BauerBodoni-Roman.otf") format("opentype");
 }
 
+@font-face {
+  font-family: 'MilanMaison Primary';
+  font-weight: normal;
+  src: url("fonts/MTTMilano/MTTMilano-UltraBold.otf") format("opentype");
+}
+@font-face {
+  font-family: 'MilanMaison Support';
+  font-weight: normal;
+  src: url("fonts/BrandonGrotesque/Brandon_med.otf") format("opentype");
+}
+@font-face {
+  font-family: 'MilanMaison Support';
+  font-weight: bold;
+  src: url("fonts/BrandonGrotesque/Brandon_bld.otf") format("opentype");
+}
+@font-face {
+  font-family: 'MilanMaison Support';
+  font-weight: lighter;
+  src: url("fonts/BrandonGrotesque/Brandon_light.otf") format("opentype");
+}
+
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-family: 'Bauer Bodoni';
+  font-family: $font-family-primary;
   font-weight: normal;
   line-height: 1.3em;
   color: $heading-color;
@@ -37,6 +58,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 h1{
+  text-transform: uppercase;
   @media (min-width: 768px){
     font-size: 48px;
   }
