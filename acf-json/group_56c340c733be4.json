@@ -89,7 +89,6 @@
             "ui": 1
         },
         {
-<<<<<<< HEAD
             "key": "field_56d972b7829f0",
             "label": "Link Cta",
             "name": "widget_link_cta",
@@ -111,8 +110,6 @@
             "disabled": 0
         },
         {
-=======
->>>>>>> df08e6d24a47eb7ab489dd97c1c5cb66d997e4f7
             "key": "field_56c346154799d",
             "label": "Side Image",
             "name": "widget_side_image",
@@ -154,9 +151,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-<<<<<<< HEAD
     "modified": 1457091323
-=======
-    "modified": 1455875697
->>>>>>> df08e6d24a47eb7ab489dd97c1c5cb66d997e4f7
 }
