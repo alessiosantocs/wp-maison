@@ -9,7 +9,7 @@ class MM_FooterFeaturedSectionWidget extends WP_Widget {
 			'classname' => 'mm_footer_featured_section_widget',
 			'description' => 'Footer featured section widget',
 		);
-		parent::__construct( 'my_widget', 'My Widget', $widget_ops );
+		parent::__construct( 'my_widget', 'Footer featured section', $widget_ops );
 	}
 
 	/**
@@ -26,10 +26,14 @@ class MM_FooterFeaturedSectionWidget extends WP_Widget {
 		$widget_background_image = get_field('widget_background_image', "widget_" . $widget_id);
 		$widget_side_image = get_field('widget_side_image', "widget_" . $widget_id);
 		$widget_link = get_field('widget_link', "widget_" . $widget_id);
+		$widget_link_cta = get_field('widget_link_cta', "widget_" . $widget_id);
+		if (empty($widget_link_cta)) {
+			$widget_link_cta = get_the_title($widget_link->ID);
+		}
 
 		?>
 
-		<section class="section section-inverted section-medium-padding css-animate on-hover">
+		<section class="section section-inverted section-medium-padding css-animate on-hover hover">
 
 			<?php if (!empty($widget_background_image)): ?>
 				<div class="section-background enhance-img" style="background-image: url(<?php echo $widget_background_image['url'] ?>);">
@@ -53,7 +57,7 @@ class MM_FooterFeaturedSectionWidget extends WP_Widget {
 							<?php if (!empty($widget_link)): ?>
 
 								<a href="<?php echo get_permalink($widget_link->ID); ?>" class="btn btn-primary btn-outlined">
-									<?php echo get_the_title($widget_link->ID); ?>
+									<?php echo $widget_link_cta; ?>
 								</a>
 
 							<?php endif; ?>

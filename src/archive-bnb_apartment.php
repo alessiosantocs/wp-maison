@@ -20,4 +20,8 @@
 
 <?php // get_sidebar(); ?>
 
-<?php get_footer(); ?>
+<?php
+global $footer_widget_area_id;
+$footer_widget_area_id = 'widget-area-before-footer-accommodation';
+
+get_footer(); ?>

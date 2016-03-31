@@ -310,16 +310,28 @@ msgid "Iron"
 msgstr "Ferro da stiro"
 
 msgid "Hair Dryer"
-msgstr "Phon"
+msgstr "Asciugacapelli"
 
 msgid "Laptop Friendly Workspace"
 msgstr "Un luogo adatto all'utilizzo di un laptop"
 
+msgid "Washer in common space"
+msgstr "Lavatrice in spazio comune"
+
+msgid "Outdoor Wireless Internet"
+msgstr "Wifi all'esterno"
+
+msgid "Indoor Wireless Internet"
+msgstr "Wifi all'interno"
+
+msgid "Breakfast on reservation"
+msgstr "Colazione su prenotazione"
+
 # / Airbnb amenities
 
 #: ../archive-bnb_apartment.php:5
-msgid "Stay at Boschi di Montecalvi"
-msgstr "Vieni a Boschi di Montecalvi"
+msgid "Stay at %s"
+msgstr "Vieni a %s"
 
 #: ../single-bnb_apartment.php
 msgid "Amenities, availability and price"
@@ -327,7 +339,7 @@ msgstr "Caratteristiche, disponibilità e prezzi"
 
 #: ../archive-bnb_apartment.php:6
 msgid "Each accomodation is unique. Find the one that’s best for you"
-msgstr "Ogni appartamento è unico. Trova quello che fa per te"
+msgstr "Ogni alloggio è unico. Trova quello che fa per te"
 
 #: ../loop-bnb_apartment.php:32
 msgid "Availability & price"

@@ -31,13 +31,7 @@ if(!empty($hidden_objects)){
 		<div class="container">
 			<div class="page-header">
 				<h1>
-					<?php
-					$featured_title = get_field('featured_title');
-					if ( !empty($featured_title) ): ?>
-						<?php echo $featured_title;?>
-					<?php else:?>
-						<?php the_title(); ?>
-					<?php endif;?>
+					<?php the_title(); ?>
 				</h1>
 				<?php
 				$featured_subtitle = get_field('featured_subtitle');

@@ -12,7 +12,8 @@
 			<?php endif; ?>
 
 			<div class="container on-top-relative">
-				<h1 class="section-title"><?php echo get_field('value_proposition'); ?></h1>
+				<?php $value_proposition = get_field('value_proposition'); ?>
+				<h1 class="section-title <?php if(strlen($value_proposition) > 57){echo 'section-title-longest';}elseif(strlen($value_proposition) > 52){echo 'section-title-long';} ?>"><?php echo get_field('value_proposition'); ?></h1>
 				<p class="section-paragraph"><?php echo get_field('value_proposition_subtitle'); ?></p>
 
 				<?php
@@ -57,7 +58,7 @@ if( $posts ): ?>
     <section class="section section-inverted">
         <?php setup_postdata($post); ?>
 
-				<div class="section-background enhance-img">
+				<div class="section-background">
 					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
 				</div>
 
@@ -79,7 +80,19 @@ if( $posts ): ?>
 						<?php echo get_field('page_excerpt'); ?>
 					</p>
 
-					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-outlined"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-outlined">
+						<?php
+						$featured_cta = get_field('featured_cta');
+						if ( !empty($featured_cta) ): ?>
+
+							<?php echo $featured_cta; ?>
+
+						<?php else:	 ?>
+
+							<?php the_title(); ?>
+
+						<?php endif; ?>
+					</a>
 				</div>
 		</section>
     <?php endforeach; ?>

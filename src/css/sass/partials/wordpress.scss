@@ -38,26 +38,30 @@
  */
 
 .wp-caption {
-  background: $body-bg;
-  border: thin solid #F0F0F0;
-  max-width: 95%;
-  padding: $padding-horizontal-base $padding-vertical-base;
-  text-align: center;
+  position: relative;
+  width: auto !important;
 
   & img {
-    width: auto;
-    max-width: 98.5%;
     height: auto;
     border: 0 none;
 
     @include reset-box;
   }
+
+  &.alignnone img{
+    width: 100% !important;
+  }
 }
 
 .wp-caption .wp-caption-text,
 .gallery-caption {
+  background: rgba(0,0,0, 0.8);
+  color: white;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
   margin: 0;
-  padding: 0 $padding-horizontal-base $padding-vertical-base;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+  font-size: 13px;
+  padding: 5px;
 }

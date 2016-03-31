@@ -135,6 +135,7 @@
 				var lazytop = lazydiv.offset().top;
 
 				if(lazytop < bodyScrollLimit){
+					lazydiv.addClass("unveil");
 					lazydiv.css("background-image", "url(" + lazyurl + ")");
 				}
 			});
@@ -143,6 +144,16 @@
 		checkScroll();
 
 
+		// Lazy loading for slider imgs
+		// var attrname = "data-lazyslide-img";
+		// var setupLazyslideImgs = function(){
+		// 	var lazyslideImgs = $("img[" + attrname + "]");
+		//
+		// 	lazyslideImgs.each(function(index){
+		// 		var src = $(this).attr(attrname);
+		// 		var ori
+		// 	});
+		// };
 
 
 

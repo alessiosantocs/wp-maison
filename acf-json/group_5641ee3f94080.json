@@ -3,6 +3,27 @@
     "title": "Apartment fields",
     "fields": [
         {
+            "key": "field_56d06cd50c4e4",
+            "label": "Apartment definition",
+            "name": "apartment_definition",
+            "type": "text",
+            "instructions": "If you don't add it, this text will be displayed as default 'Caratteristiche, servizi e foto'.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": "",
+            "readonly": 0,
+            "disabled": 0
+        },
+        {
             "key": "field_5641d97bb4ad9",
             "label": "Gallery",
             "name": "gallery",
@@ -162,10 +183,11 @@
                 "Shampoo": "Shampoo",
                 "Heating": "Heating",
                 "Air Conditioning": "Air Conditioning",
-                "Washer": "Washer",
+                "Washer": "Washer in common space",
                 "Free Parking on Premises": "Free Parking on Premises",
-                "Wireless Internet": "Wireless Internet",
-                "Breakfast": "Breakfast",
+                "Wireless Internet": "Outdoor Wireless Internet",
+                "Indoor Wireless Internet": "Indoor Wireless Internet",
+                "Breakfast": "Breakfast on reservation",
                 "Pets Allowed": "Pets Allowed",
                 "Family\/Kid Friendly": "Family\/Kid Friendly",
                 "Suitable for Events": "Suitable for Events",
@@ -255,5 +277,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1453113943
+    "modified": 1457104093
 }

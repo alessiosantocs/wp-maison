@@ -180,21 +180,31 @@ function html5blank_conditional_scripts()
 // Load HTML5 Blank styles
 function html5blank_styles()
 {
-    if (HTML5_DEBUG) {
-        // normalize-css
-        wp_register_style('normalize', get_template_directory_uri() . '/bower_components/normalize.css/normalize.css', array(), '3.0.1');
 
-        // Custom CSS
-        wp_register_style('html5blank', get_template_directory_uri() . '/style.css', array('normalize'), '1.0');
+  $host = $_SERVER['HTTP_HOST'];
+  $is_it = strpos($host, '.it');
+  $template_directory = get_template_directory_uri();
 
-        // Register CSS
-        wp_enqueue_style('html5blank');
-    } else {
-        // Custom CSS
-        wp_register_style('html5blankcssmin', get_template_directory_uri() . '/style.css', array(), '1.0');
-        // Register CSS
-        wp_enqueue_style('html5blankcssmin');
-    }
+  if ($is_it) {
+    $template_directory = str_replace('.com', '.it', $template_directory);
+  }
+
+  if (HTML5_DEBUG) {
+      // normalize-css
+      wp_register_style('normalize', $template_directory . '/bower_components/normalize.css/normalize.css', array(), '3.0.1');
+
+      // Custom CSS
+      wp_register_style('html5blank', $template_directory . '/style.css', array('normalize'), '1.0');
+
+      // Register CSS
+      wp_enqueue_style('html5blank');
+  } else {
+      // Custom CSS
+      wp_register_style('html5blankcssmin', $template_directory . '/style.css', array(), '1.0');
+      // Register CSS
+      wp_enqueue_style('html5blankcssmin');
+  }
+
 }
 
 // Register HTML5 Blank Navigation
@@ -273,10 +283,21 @@ function remove_width_attribute( $html ) {
 if (function_exists('register_sidebar'))
 {
     // Define Sidebar Widget Area 1
+    // register_sidebar(array(
+    //     'name' => __('Widget Area 1', 'html5blank'),
+    //     'description' => __('Description for this widget-area...', 'html5blank'),
+    //     'id' => 'widget-area-1',
+    //     'before_widget' => '<div id="%1$s" class="%2$s">',
+    //     'after_widget' => '</div>',
+    //     'before_title' => '<h3>',
+    //     'after_title' => '</h3>'
+    // ));
+
+    // Define Sidebar Widget Area 2
     register_sidebar(array(
-        'name' => __('Widget Area 1', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
-        'id' => 'widget-area-1',
+        'name' => __('Before footer', 'html5blank'),
+        'description' => __('Place here widgets to be displayed just before the footer.', 'html5blank'),
+        'id' => 'widget-area-2',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',
@@ -285,9 +306,9 @@ if (function_exists('register_sidebar'))
 
     // Define Sidebar Widget Area 2
     register_sidebar(array(
-        'name' => __('Widget Area 2', 'html5blank'),
-        'description' => __('Description for this widget-area...', 'html5blank'),
-        'id' => 'widget-area-2',
+        'name' => __('Before footer (Accommodation)', 'html5blank'),
+        'description' => __('Place here widgets to be displayed just before the footer only in the accommodation section.', 'html5blank'),
+        'id' => 'widget-area-before-footer-accommodation',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',

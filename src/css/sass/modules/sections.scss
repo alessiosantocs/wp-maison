@@ -119,6 +119,14 @@
 
       @media(min-width: $mobile_breakpoint){
         font-size: 60px;
+
+        &.section-title-longest{
+          font-size: 46px;
+        }
+
+        &.section-title-long{
+          font-size: 50px;
+        }
       }
 
     }

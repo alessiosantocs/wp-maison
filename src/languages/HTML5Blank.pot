@@ -316,6 +316,18 @@ msgstr ""
 msgid "Laptop Friendly Workspace"
 msgstr ""
 
+msgid "Washer in common space"
+msgstr ""
+
+msgid "Outdoor Wireless Internet"
+msgstr ""
+
+msgid "Indoor Wireless Internet"
+msgstr ""
+
+msgid "Breakfast on reservation"
+msgstr ""
+
 # / Airbnb amenities
 
 #: ../archive-bnb_apartment.php:5
