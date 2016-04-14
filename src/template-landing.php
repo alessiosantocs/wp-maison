@@ -1,6 +1,32 @@
 <?php /* Template Name: Landing Template */
 get_header(); ?>
 
+<?php
+$show_page_header = true;
+$show_featured_image = true;
+$show_page_excerpt = true;
+$show_page_content = true;
+$show_sidebar = true;
+
+$hidden_objects = get_field_object('hide_objects');
+
+if(!empty($hidden_objects)){
+  $hidden_objects_value = $hidden_objects['value'];
+
+  if(empty($hidden_objects_value)){
+    $hidden_objects_value = Array();
+  }
+
+
+  $show_page_header     = array_search('hide_page_header', $hidden_objects_value)     === false;
+  $show_featured_image  = array_search('hide_featured_image', $hidden_objects_value)  === false;
+  $show_page_excerpt    = array_search('hide_page_excerpt', $hidden_objects_value)    === false;
+  $show_page_content    = array_search('hide_content', $hidden_objects_value)         === false;
+  $show_sidebar         = array_search('hide_sidebar', $hidden_objects_value)         === false;
+}
+
+ ?>
+
 	<main role="main">
 		<!-- section -->
 		<section class="section section-primary">
@@ -138,9 +164,11 @@ if( $posts ): ?>
 
 
 <style media="screen">
+	<?php if(!$show_page_header): ?>
 	.navbar-parent{
 		display: none !important;
 	}
+	<?php endif;?>
 
 	@media (max-width: 767px){
 		.page-template-template-landing .section.section-large-padding .section-background{
